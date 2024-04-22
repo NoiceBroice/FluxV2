@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://assets/fonts/SourceSansPro/SourceSansPro-Semibold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/images/play.png" type="Texture" id=2]
@@ -74,6 +74,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.501961 )
+
+[sub_resource type="DynamicFont" id=39]
+size = 30
+font_data = ExtResource( 18 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -239,7 +243,6 @@ anchor_bottom = 1.0
 margin_top = 72.0
 
 [node name="MainMenu" type="Control" parent="ViewContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 8 )
@@ -512,13 +515,16 @@ custom_styles/panel = SubResource( 12 )
 [node name="Label" type="Label" parent="ViewContainer/MainMenu/News"]
 anchor_right = 1.0
 margin_bottom = 56.0
+custom_fonts/font = SubResource( 39 )
 text = "Message to FluxV2 users"
 align = 1
 valign = 1
 
 [node name="Label2" type="Label" parent="ViewContainer/MainMenu/News"]
 anchor_right = 1.0
+margin_left = 20.0
 margin_top = 72.0
+margin_right = -10.0
 margin_bottom = 211.0
 text = "Welcome to the before-beta testing, I just want to remind you there WILL be problems and bugs that need to be sorted out, dont think this is a complete version of the game, I still have much to work on."
 align = 1
@@ -526,6 +532,7 @@ valign = 1
 autowrap = true
 
 [node name="Singleplayer" type="Control" parent="ViewContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 11 )

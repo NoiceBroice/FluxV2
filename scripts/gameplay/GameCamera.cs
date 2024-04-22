@@ -29,7 +29,7 @@ namespace Gameplay
 				return;
 			var input = @event as InputEventMouseMotion;
 			Rotation = new Vector3(Mathf.Deg2Rad(Pitch), Mathf.Deg2Rad(Yaw), 0);
-			Translation = new Vector3(0, 0, 7) + new Vector3(ClampedCursorPosition.x, ClampedCursorPosition.y, 0) / 4f + Transform.basis.z / 2f;
+			Translation = new Vector3(0, 0, 7) + new Vector3(ClampedCursorPosition.x * (Settings.CameraParallax / 10f), ClampedCursorPosition.y * (Settings.CameraParallax / 10f), 0) / 4f + Transform.basis.z / 2f;
 			var relative = input.Relative * Settings.MouseSensitivity / 4f;
 			if (Settings.CameraMode == 0)
 			{

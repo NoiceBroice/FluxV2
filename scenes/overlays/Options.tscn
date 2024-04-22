@@ -343,10 +343,33 @@ step = 0.01
 value = 1.0
 allow_greater = true
 
-[node name="Drift" type="CheckButton" parent="Content/Gameplay/ScrollContainer/Grid/Camera/VBoxContainer"]
+[node name="Parallax" type="Control" parent="Content/Gameplay/ScrollContainer/Grid/Camera/VBoxContainer"]
 margin_top = 112.0
 margin_right = 278.0
 margin_bottom = 144.0
+rect_min_size = Vector2( 0, 32 )
+script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="Content/Gameplay/ScrollContainer/Grid/Camera/VBoxContainer/Parallax"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+text = "Parallax"
+valign = 1
+
+[node name="SpinBox" type="SpinBox" parent="Content/Gameplay/ScrollContainer/Grid/Camera/VBoxContainer/Parallax"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+step = 0.01
+value = 10.0
+allow_greater = true
+
+[node name="Drift" type="CheckButton" parent="Content/Gameplay/ScrollContainer/Grid/Camera/VBoxContainer"]
+margin_top = 148.0
+margin_right = 278.0
+margin_bottom = 180.0
 rect_min_size = Vector2( 0, 32 )
 focus_mode = 0
 action_mode = 0

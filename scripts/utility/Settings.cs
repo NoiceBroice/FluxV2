@@ -10,6 +10,7 @@ public static class Settings
 	public static bool AnyPause = false;
 	public static int CameraMode = 0;
 	public static float MouseSensitivity = 1f;
+	public static float CameraParallax = 10f;
 	public static int ApproachMode = 0;
 	public static float ApproachDistance = 50f;
 	public static float ApproachTime = 1f;
@@ -100,6 +101,7 @@ public static class Settings
 		public bool AnyPause;
 		public int CameraMode;
 		public float MouseSensitivity;
+		public  float CameraParallax;
 		public int ApproachMode;
 		public float ApproachDistance;
 		public float ApproachTime;
@@ -141,6 +143,7 @@ public static class Settings
 			Bloom = 0;
 			FPSLimit = 0;
 			VSync = false;
+			CameraParallax = 10f;
 			Debanding = false;
 			NotePushback = false;
 		}

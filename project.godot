@@ -21,7 +21,7 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://assets/images/flux.png"
-config/windows_native_icon="res://assets/images/vulnus.ico"
+config/windows_native_icon="res://assets/images/flux.ico"
 config/use_custom_user_dir.Android=false
 
 [audio]
