@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://assets/fonts/SourceSansPro/SourceSansPro-Semibold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/images/play.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/shaders/mask.gdshader" type="Shader" id=17]
 [ext_resource path="res://assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://assets/images/placeholder.png" type="Texture" id=19]
+[ext_resource path="res://assets/images/exit.svg" type="Texture" id=20]
 
 [sub_resource type="StyleBoxFlat" id=25]
 bg_color = Color( 0.141176, 0.141176, 0.141176, 1 )
@@ -495,7 +496,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 48.0
 margin_bottom = -8.0
-texture = ExtResource( 5 )
+texture = ExtResource( 20 )
 expand = true
 stretch_mode = 6
 
