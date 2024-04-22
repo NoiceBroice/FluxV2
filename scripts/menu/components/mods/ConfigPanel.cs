@@ -1,12 +1,14 @@
 using Gameplay;
+using Gameplay.Mods;
 using Godot;
 using System;
+using System.Linq;
 
 public class ConfigPanel : Control
 {
     [Signal]
-    delegate void UpdateSelectedModsLabel(); 
-    
+    delegate void UpdateSelectedModsLabel();
+
     public void ConnectConfigElements()
     {
         GetNode<SpinBox>("Speed").Connect("value_changed", this, nameof(UpdateSpeed));
@@ -14,12 +16,14 @@ public class ConfigPanel : Control
 
     public void UpdateConfigElements()
     {
-        GetNode<SpinBox>("Speed").Value = Game.Speed * 100;
+        var speedMod = Game.Mods.OfType<ModSpeed>().FirstOrDefault();
+        GD.Print(speedMod?.SpeedMultiplier ?? 1f);
+        GetNode<SpinBox>("Speed").Value = speedMod?.SpeedMultiplier * 100f ?? 100f;
     }
 
     void UpdateSpeed(float speed)
     {
-        Game.Speed = speed / 100f;
+        Game.Mods.OfType<ModSpeed>().FirstOrDefault().SpeedMultiplier = speed / 100f;
         EmitSignal("UpdateSelectedModsLabel");
     }
 }

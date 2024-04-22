@@ -16,8 +16,6 @@ namespace Gameplay
 		public static Score Score;
 		public static ModList Mods = new ModList();
 
-		public static float Speed = 1f;
-
 		public GameCamera Camera;
 		public Spatial Cursor;
 		public Spatial GhostCursor;
@@ -40,8 +38,6 @@ namespace Gameplay
 			NoteManager = GetNode<NoteManager>("NoteManager");
 			NoteRenderer = NoteManager.GetNode<NoteRenderer>("NoteRenderer");
 			SyncManager = GetNode<SyncManager>("SyncManager");
-
-			SyncManager.Speed = Speed;
 
 			HUDManager = GetNode<HUDManager>("HUD");
 
@@ -92,7 +88,7 @@ namespace Gameplay
 			}
 
 			Global.Discord.SetActivity(new Discord.ActivityW(
-				state: "Playing a map at " + (Speed * 100).ToString() + "% speed",
+				state: "Playing a map at " + (SyncManager.Speed * 100).ToString() + "% speed",
 				details: $"{LoadedMapset.Name} - {LoadedMap.Name}",
 				startTimestamp: DateTime.Now,
 				endTimestamp: DateTime.Now.AddSeconds(SyncManager.AudioPlayer.Stream.GetLength() * SyncManager.Speed)

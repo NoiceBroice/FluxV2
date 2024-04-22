@@ -12,9 +12,9 @@ namespace Gameplay.Mods
 		public abstract double ScoreMultiplier { get; }
 		public abstract double PerformanceMultiplier { get; }
 		public abstract Type[] IncompatibleMods { get; }
-		public bool CompatibleWith(Mod other)
+		public bool IncompatableCompatibleWith(Mod other)
 		{
-			return IncompatibleMods.Any(t => t.IsInstanceOfType(other)) || other.IncompatibleMods.Any(t => t.IsInstanceOfType(this));
+			return IncompatibleMods.Any(t => t == other.GetType()) || other.IncompatibleMods.Any(t => t == GetType());
 		}
 		public virtual ModType Type { get; } = ModType.Misc;
 		public bool Equals(Mod other)
@@ -23,7 +23,7 @@ namespace Gameplay.Mods
 			if (ReferenceEquals(this, other)) return true;
 			return GetType() == other.GetType();
 		}
-		public new string ToString()
+		public override string ToString()
 		{
 			return Acronym;
 		}

@@ -9,15 +9,15 @@ namespace Gameplay.Mods
 	{
 		public new void Add(Mod mod)
 		{
-			foreach (Mod other in this.Where(m => m.GetType() == mod.GetType()))
+			foreach (Mod other in this.ToList().Where(m => m.GetType() == mod.GetType()))
 				this.Remove(other);
-			foreach (Mod other in this.Where(m => !mod.CompatibleWith(m)))
+			foreach (Mod other in this.ToList().Where(m => mod.IncompatableCompatibleWith(m)))
 				this.Remove(other);
 			base.Add(mod);
 		}
 		public new string ToString()
 		{
-			return Count == 0 ? "" : " " + string.Join(", ", this.Select(x => x.Name));
+			return Count == 0 ? "None" : string.Join(", ", this.Select(x => x.ToString()));
 		}
 
 		public void ApplyAll(Game game)

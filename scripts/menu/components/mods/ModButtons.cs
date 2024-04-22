@@ -2,6 +2,7 @@ using Gameplay;
 using Gameplay.Mods;
 using Godot;
 using System;
+using System.Linq;
 
 public class ModButtons : Node
 {
@@ -29,10 +30,17 @@ public class ModButtons : Node
 
     public void UpdateButtons()
     {
-        foreach(Mod mod in Game.Mods)
+
+        if(Game.Mods.OfType<ModNoFail>().Count() != 0) noFailButton.Pressed = true;
+        else noFailButton.Pressed = false;
+
+        if(Game.Mods.OfType<ModSpeed>().Count() != 0)
         {
-            if(mod is ModNoFail) noFailButton.Pressed = true;
+            speedButton.Pressed = true;
+            configPanel.Visible = true;
+            configPanel.GetNode<SpinBox>("VBoxContainer/Speed").Visible = true;
         }
+        else speedButton.Pressed = false;
 
         EmitSignal(nameof(UpdateSelectedModsLabel));
     }
@@ -41,14 +49,24 @@ public class ModButtons : Node
     {
 
         if(toggled) Game.Mods.Add(new ModNoFail());
-        else Game.Mods.Remove(new ModNoFail());
+        else Game.Mods.Remove(Game.Mods.OfType<ModNoFail>().FirstOrDefault());
 
         UpdateButtons();
     }
 
     void SpeedToggled(bool toggled)
     {
-        configPanel.Visible = toggled;
+        if(toggled)
+        {
+            Game.Mods.Add(new ModSpeed());
+            configPanel.GetNode<ConfigPanel>("VBoxContainer").UpdateConfigElements();
+        }
+        else Game.Mods.Remove(Game.Mods.OfType<ModSpeed>().FirstOrDefault());
+        UpdateButtons();
+        
+        configPanel.Visible = speedButton.Pressed;
         configPanel.GetNode<SpinBox>("VBoxContainer/Speed").Visible = toggled;
+
+
     }
 }

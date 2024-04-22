@@ -22,16 +22,13 @@ public class ModSelect : View
 
         GetNode<ModButtons>("ModPanel/VBoxContainer").UpdateButtons();
         GetNode<ModButtons>("ModPanel/VBoxContainer").ConnectButtons();
+        
         UpdateSelectedModsLabel();
     }
 
     void UpdateSelectedModsLabel()
     {
-        selectedMods.Text = "Selected:" + Game.Mods.ToString();
-        if(Game.Speed != 1f)
-        {
-            selectedMods.Text += " S" + (int)(Game.Speed * 100f);
-        }
+        selectedMods.Text = "Selected: " + Game.Mods.ToString();
     }
 
     public override async void OnShow()
