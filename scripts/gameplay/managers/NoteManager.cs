@@ -53,7 +53,7 @@ namespace Gameplay
 			}
 			OrderedNotes = Notes.OrderBy(note => note.T).ToList();
 			if (Notes.Count > 0)
-				NextNote = Notes[0];
+				NextNote = OrderedNotes[0];
 			ApproachTime = Settings.ApproachTime;
 		}
 		public override void _Process(float delta)

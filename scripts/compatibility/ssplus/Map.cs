@@ -111,19 +111,9 @@ namespace Compatibility.SSP
 
 					file.GetBuffer(file.Get16()); // skip over song name
 
-					var mappers = "";
-					for(int mapperId = 0; mapperId < file.Get16(); mapperId++)
-					{
-						int mapperLen = file.Get16();
-						if(mapperId != 0)
-						{
-							mappers += " & ";
-							file.Seek((long)file.GetPosition()-2);
-						}
-						var mapper = file.GetBuffer(mapperLen).GetStringFromUTF8();
-						mappers += mapper;
-					}
-
+					var mappers = new string[file.Get16()];
+					for(int mapperId = 0; mapperId < mappers.Length; mapperId++)
+						mappers[mapperId] = file.GetBuffer(file.Get16()).GetStringFromUTF8();
 
 					metaJson.Add("_mappers", new JArray(mappers));
 					metaJson.Add("_difficulties", new JArray("extracted.json"));
