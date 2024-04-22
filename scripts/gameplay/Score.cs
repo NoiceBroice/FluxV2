@@ -16,15 +16,15 @@ namespace Gameplay
 		public double Health = 10;
 		public bool Failed = false;
 		public static Dictionary<double, string> Ranks = new Dictionary<double, string>
-	{
-		{99.0,"SS"},
-		{97.5,"S"},
-		{95.0,"A"},
-		{90.0,"B"},
-		{85.0,"C"},
-		{75.0,"D"},
-		{0.0, "E"}
-	};
+		{
+			{99.0,"SS"},
+			{97.5,"S"},
+			{95.0,"A"},
+			{90.0,"B"},
+			{85.0,"C"},
+			{75.0,"D"},
+			{0.0, "E"}
+		};
 		public static string GetRankForAccuracy(double accuracy)
 		{
 			foreach (KeyValuePair<double, string> pair in Ranks)

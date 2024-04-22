@@ -9,7 +9,7 @@ namespace Online
 		public string Username { get; private set; }
 		public string Id { get; private set; } = "null";
 		public string AvatarUrl { get; private set; } = "null";
-		public Texture AvatarTexture { get; private set; } = Global.Matt;
+		public Texture AvatarTexture { get; private set; } = Global.PlaceholderTexture;
 		public User(string username)
 		{
 			this.Username = username;

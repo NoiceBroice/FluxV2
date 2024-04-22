@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using File = Godot.File;
 using Content.Beatmaps;
 using System.Runtime.Remoting.Messaging;
+using System.IO.MemoryMappedFiles;
 
 namespace Compatibility.SSP
 {
@@ -118,6 +119,7 @@ namespace Compatibility.SSP
 						mappers += mapper;
 					}
 
+
 					metaJson.Add("_mappers", new JArray(mappers));
 					metaJson.Add("_difficulties", new JArray("extracted.json"));
 					metaJson.Add("_music", "music.bin");
@@ -127,13 +129,34 @@ namespace Compatibility.SSP
 					metaStream.Flush();
 					metaStream.Close();
 
-					file.Seek((long)markerByteOffset);
 
 					var notesEntry = zip.CreateEntry("extracted.json");
 
 					var notesJson = new JObject();
 					notesJson.Add("_version", 1);
-					notesJson.Add("_name", "Sound Space Plus");
+					
+					var difficultyName = "Sound Space Plus";
+
+					file.Seek((long)customDataOffset);
+					var customDataCount = file.Get16();
+					
+					for(int i = 0; i < customDataCount; i++)
+					{
+						string name = file.GetBuffer(file.Get16()).GetStringFromUTF8();
+						var type = file.Get8();
+
+						if(type == 0x09) // string check ssp Song.gd for this
+						{
+							difficultyName = file.GetBuffer(file.Get16()).GetStringFromUTF8();
+						}
+						else if(type == 0x0b)
+						{
+							difficultyName = file.GetBuffer(file.Get32()).GetStringFromUTF8();
+						}
+					}
+					notesJson.Add("_name", difficultyName);
+
+					file.Seek((long)markerByteOffset);
 
 					var notes = new JArray();
 

@@ -124,8 +124,8 @@ namespace Content.Beatmaps
 			}
 			if (coverPath == "none")
 			{
-				Cover = Global.Matt;
-				return Global.Matt;
+				Cover = Global.PlaceholderTexture;
+				return Global.PlaceholderTexture;
 			}
 			texture = new ImageTexture();
 			cover.Load(coverPath);
