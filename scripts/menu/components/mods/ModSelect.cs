@@ -4,13 +4,19 @@ using System;
 
 public class ModSelect : View
 {
+
+    Label selectedMods;
+
     public override void _Ready()
     {
         this.ViewTween = GetNode<Tween>("Tween");
+        selectedMods = GetNode<Label>("ModPanel/VBoxContainer/SelectedMods");
+        
         GetNode<Button>("ModPanel/Close").Connect("pressed", this, nameof(OnHide));
         
         GetNode<ModButtons>("ModPanel/VBoxContainer").Connect("UpdateSelectedModsLabel", this, nameof(UpdateSelectedModsLabel));
-        
+        GetNode<ConfigPanel>("ModPanel/ConfigPanel/VBoxContainer").Connect("UpdateSelectedModsLabel", this, nameof(UpdateSelectedModsLabel));
+
         GetNode<ModButtons>("ModPanel/VBoxContainer").UpdateButtons();
         GetNode<ModButtons>("ModPanel/VBoxContainer").ConnectButtons();
         UpdateSelectedModsLabel();
@@ -18,8 +24,11 @@ public class ModSelect : View
 
     void UpdateSelectedModsLabel()
     {
-        GD.Print(Game.Mods.Count);
-        GetNode<Label>("ModPanel/VBoxContainer/SelectedMods").Text = "Selected: " + Game.Mods.ToString();
+        selectedMods.Text = "Selected:" + Game.Mods.ToString();
+        if(Game.Speed != 1f)
+        {
+            selectedMods.Text += " S" + (int)(Game.Speed * 100f);
+        }
     }
 
     public override async void OnShow()

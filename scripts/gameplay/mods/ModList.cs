@@ -17,7 +17,7 @@ namespace Gameplay.Mods
 		}
 		public new string ToString()
 		{
-			return Count == 0 ? "None" : string.Join(", ", this.Select(x => x.Name));
+			return Count == 0 ? "" : " " + string.Join(", ", this.Select(x => x.Name));
 		}
 
 		public void ApplyAll(Game game)

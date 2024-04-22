@@ -16,6 +16,8 @@ namespace Gameplay
 		public static Score Score;
 		public static ModList Mods = new ModList();
 
+		public static float Speed = 1f;
+
 		public GameCamera Camera;
 		public Spatial Cursor;
 		public Spatial GhostCursor;
@@ -38,6 +40,8 @@ namespace Gameplay
 			NoteManager = GetNode<NoteManager>("NoteManager");
 			NoteRenderer = NoteManager.GetNode<NoteRenderer>("NoteRenderer");
 			SyncManager = GetNode<SyncManager>("SyncManager");
+
+			SyncManager.Speed = Speed;
 
 			HUDManager = GetNode<HUDManager>("HUD");
 

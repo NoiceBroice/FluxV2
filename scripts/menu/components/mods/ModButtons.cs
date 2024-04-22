@@ -9,16 +9,22 @@ public class ModButtons : Node
     [Signal]
     delegate void UpdateSelectedModsLabel(); 
 
+    Panel configPanel;
+
     Button noFailButton;
+    Button speedButton;
 
     public override void _Ready()
     {
+        configPanel = GetNode<Panel>("../ConfigPanel");
         noFailButton = GetNode<Button>("DiffDec/HBoxContainer/Nofail");
+        speedButton = GetNode<Button>("Misc/HBoxContainer/Speed");
     }
 
     public void ConnectButtons()
     {
         noFailButton.Connect("toggled", this, nameof(NoFailToggled));
+        speedButton.Connect("toggled", this, nameof(SpeedToggled));
     }
 
     public void UpdateButtons()
@@ -38,5 +44,11 @@ public class ModButtons : Node
         else Game.Mods.Remove(new ModNoFail());
 
         UpdateButtons();
+    }
+
+    void SpeedToggled(bool toggled)
+    {
+        configPanel.Visible = toggled;
+        configPanel.GetNode<SpinBox>("VBoxContainer/Speed").Visible = toggled;
     }
 }
