@@ -16,6 +16,7 @@ public class CameraSettings : Control
 		GetNode<DecimalInput>("Sensitivity").SetValue(Settings.MouseSensitivity);
 		GetNode<CheckButton>("Drift").Pressed = Settings.CursorDrift;
 	}
+
 	public void OnButtonPressed()
 	{
 		Settings.CursorDrift = GetNode<CheckButton>("Drift").Pressed;

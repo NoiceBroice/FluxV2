@@ -39,6 +39,7 @@ public class MapList : Control
 	}
 	public override void _Process(float delta)
 	{
+		RootMaps = BeatmapLoader.LoadedMaps;
 		scrollf += (scroll - scrollf) * delta / 0.1f;
 		anchor.RectPosition = new Vector2(anchor.RectPosition.x, -scrollf * 78);
 		base._Process(delta);

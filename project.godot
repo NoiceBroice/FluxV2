@@ -10,17 +10,17 @@ config_version=4
 
 [application]
 
-config/name="Vulnus"
-config/description="Vulnus"
+config/name="Flux"
+config/description="Flux"
 run/main_scene="res://scenes/Startup.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="Vulnus"
+config/custom_user_dir_name="Flux"
 boot_splash/show_image=false
 boot_splash/image="res://assets/images/beatgamedev.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://assets/images/vulnus.png"
+config/icon="res://assets/images/flux.png"
 config/windows_native_icon="res://assets/images/vulnus.ico"
 config/use_custom_user_dir.Android=false
 
@@ -105,7 +105,7 @@ locale_filter=[ 1, [ "en_GB", "en_US", "fr" ] ]
 [mono]
 
 profiler/enabled=true
-project/assembly_name="Vulnus"
+project/assembly_name="Flux"
 
 [physics]
 

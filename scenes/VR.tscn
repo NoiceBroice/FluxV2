@@ -31,7 +31,6 @@ controller_id = 2
 [node name="UI" type="MeshInstance" parent="."]
 transform = Transform( 2, 0, 0, 0, 1, -1.73205, 0, 1.73205, 1, 0, 1.2, -2 )
 mesh = SubResource( 3 )
-material/0 = null
 
 [node name="Viewport" type="Viewport" parent="UI"]
 size = Vector2( 1200, 900 )

@@ -86,8 +86,8 @@ namespace Gameplay
 			var skipToEnd = (double)AudioPlayer.Stream.GetLength() - NoteTime - Speed;
 			if (NoteManager.LastNote == null && NoteManager.NextNote == null)
 				return skipToEnd;
-			if (NoteManager.LastNote != null && NoteManager.LastNote.Index == (NoteManager.Notes.Count - 1))
-				return skipToEnd;
+			// if (NoteManager.LastNote != null && NoteManager.LastNote.Index == (NoteManager.Notes.Count - 1))
+			// 	return skipToEnd;
 			return NoteManager.NextNote.T - NoteTime - Speed;
 		}
 		public void AudioEnded()

@@ -21,7 +21,8 @@ public static class Settings
 	public static int Bloom = 0;
 	public static int FPSLimit = 0;
 	public static bool VSync = false;
-	public static bool Debanding = true;
+	public static bool Debanding = false;
+	public static bool NotePushback = true;
 	public static void UpdateSettings(bool loading = false)
 	{
 		if (loading)
@@ -103,6 +104,7 @@ public static class Settings
 		public float ApproachDistance;
 		public float ApproachTime;
 		public float ApproachRate;
+		public bool NotePushback;
 		public int[] Volume;
 		[OptionalField(VersionAdded = 2)]
 		public float RenderScale;
@@ -118,7 +120,7 @@ public static class Settings
 		public bool VSync;
 		[OptionalField(VersionAdded = 2)]
 		public bool Debanding;
-		[OnDeserializing()]
+
 		internal void OnDeserializing(StreamingContext ctx)
 		{
 			SetDefaults();
@@ -139,7 +141,8 @@ public static class Settings
 			Bloom = 0;
 			FPSLimit = 0;
 			VSync = false;
-			Debanding = true;
+			Debanding = false;
+			NotePushback = false;
 		}
 	}
 }

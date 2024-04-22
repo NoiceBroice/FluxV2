@@ -28,6 +28,7 @@ public class MapDetails : View
 		musicPreview = GetNode<AudioStreamPlayer>("MusicPreview");
 
 		details.GetNode<Button>("Play").Connect("pressed", this, nameof(PlayMap));
+		// details.GetNode<Button>("Mods").Connect("pressed", this, nameof(ShowMods));
 
 		SetActive(false);
 	}

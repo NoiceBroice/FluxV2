@@ -11,6 +11,7 @@ namespace Content.Beatmaps
 	public static class BeatmapLoader
 	{
 		public static List<BeatmapSet> LoadedMaps = new List<BeatmapSet>();
+		public static List<BeatmapToConvert> MapsToConvert = new List<BeatmapToConvert>();
 		public static bool LoadMapsFromDirectory(string directory, bool reset = false)
 		{
 			if (reset)
@@ -45,7 +46,7 @@ namespace Content.Beatmaps
 			var mapFile = new File();
 			while (mapFileName != "")
 			{
-				if (mapFileName.Extension() == "vul")
+				if (mapFileName.Extension() == "flux")
 				{
 					var hash = mapFile.GetMd5(directory.PlusFile(mapFileName));
 					hashes.Add(hash);
@@ -72,6 +73,14 @@ namespace Content.Beatmaps
 							GD.PrintErr($"{hash}: {e.Message}");
 						}
 					}
+				}
+				else if (mapFileName.Extension() == "sspm")
+				{
+					MapsToConvert.Add(new BeatmapToConvert {
+						Name = mapFileName.BaseName(),
+						Path = directory.PlusFile(mapFileName),
+						Version = Compatibility.SSP.Map.GetVersion(directory.PlusFile(mapFileName)),
+					});
 				}
 				mapFileName = mapsDir.GetNext();
 			}

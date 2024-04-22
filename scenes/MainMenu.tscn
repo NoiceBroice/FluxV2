@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/themes/Menu.tres" type="Theme" id=6]
 [ext_resource path="res://assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://scripts/menu/MainMenu.cs" type="Script" id=8]
-[ext_resource path="res://assets/images/vulnus.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/flux.png" type="Texture" id=9]
 [ext_resource path="res://scripts/menu/MenuHandler.cs" type="Script" id=10]
 [ext_resource path="res://scripts/menu/Singleplayer.cs" type="Script" id=11]
 [ext_resource path="res://prefabs/menu/MapList.tscn" type="PackedScene" id=12]
@@ -260,8 +260,8 @@ margin_bottom = 631.6
 custom_constants/separation = 8
 
 [node name="Play" type="Button" parent="ViewContainer/MainMenu/LockedAwayForever/HBoxContainer"]
-margin_right = 330.0
-margin_bottom = 358.0
+margin_right = 402.0
+margin_bottom = 435.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 custom_constants/hseparation = 8
@@ -293,16 +293,16 @@ expand = true
 stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ViewContainer/MainMenu/LockedAwayForever/HBoxContainer"]
-margin_left = 338.0
-margin_right = 448.0
-margin_bottom = 358.0
+margin_left = 410.0
+margin_right = 544.0
+margin_bottom = 435.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 alignment = 1
 
 [node name="Settings" type="Button" parent="ViewContainer/MainMenu/LockedAwayForever/HBoxContainer/VBoxContainer"]
-margin_right = 110.0
-margin_bottom = 177.0
+margin_right = 134.0
+margin_bottom = 215.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/hseparation = 8
@@ -321,9 +321,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Quit" type="Button" parent="ViewContainer/MainMenu/LockedAwayForever/HBoxContainer/VBoxContainer"]
-margin_top = 181.0
-margin_right = 110.0
-margin_bottom = 358.0
+margin_top = 219.0
+margin_right = 134.0
+margin_bottom = 435.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/hseparation = 8
@@ -499,16 +499,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 56.0
 custom_fonts/font = SubResource( 1 )
-text = "Quit Vulnus"
+text = "Quit Flux"
 valign = 1
 
 [node name="News" type="Panel" parent="ViewContainer/MainMenu"]
-visible = false
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 64.0
 custom_styles/panel = SubResource( 12 )
+
+[node name="Label" type="Label" parent="ViewContainer/MainMenu/News"]
+anchor_right = 1.0
+margin_bottom = 56.0
+text = "Message to FluxV2 users"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="ViewContainer/MainMenu/News"]
+anchor_right = 1.0
+margin_top = 72.0
+margin_bottom = 211.0
+text = "Welcome to the before-beta testing, I just want to remind you there WILL be problems and bugs that need to be sorted out, dont think this is a complete version of the game, I still have much to work on."
+align = 1
+valign = 1
+autowrap = true
 
 [node name="Singleplayer" type="Control" parent="ViewContainer"]
 anchor_right = 1.0
@@ -712,6 +727,7 @@ expand = true
 stretch_mode = 6
 
 [node name="ModSelect" type="ColorRect" parent="ViewContainer/Singleplayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.784314 )
@@ -1104,7 +1120,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Not logged in"
 valign = 2
 
-[node name="Vulnus" type="TextureRect" parent="Topbar"]
+[node name="Flux" type="TextureRect" parent="Topbar"]
 anchor_bottom = 1.0
 margin_top = 12.0
 margin_right = 72.0

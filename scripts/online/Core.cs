@@ -25,7 +25,7 @@ namespace Online
 	{
 		public static Result Result { get; private set; }
 		public static string ErrorMessage { get; private set; }
-		public static VulnusHttpClient HttpClient { get; private set; } = new VulnusHttpClient();
+		public static FluxHttpClient HttpClient { get; private set; } = new FluxHttpClient();
 		public static Status ServerStatus()
 		{
 			var result = HttpClient.GetSync("status");
@@ -36,15 +36,15 @@ namespace Online
 			return Status.Offline;
 		}
 	}
-	public class VulnusHttpClient : HttpClient
+	public class FluxHttpClient : HttpClient
 	{
 		private static HttpClientHandler Handler = new HttpClientHandler();
-		public VulnusHttpClient() : base(Handler)
+		public FluxHttpClient() : base(Handler)
 		{
 			Handler.AllowAutoRedirect = false;
 			Handler.CookieContainer = new CookieContainer();
 			Handler.UseCookies = true;
-			this.DefaultRequestHeaders.UserAgent.ParseAdd("Vulnus/1.0");
+			this.DefaultRequestHeaders.UserAgent.ParseAdd("Flux/1.0");
 			this.DefaultRequestHeaders.Accept.ParseAdd("application/json");
 			this.BaseAddress = new Uri("https://vulnus.net/api/");
 		}

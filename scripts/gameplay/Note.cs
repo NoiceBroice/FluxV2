@@ -29,6 +29,7 @@ namespace Gameplay
 		{
 			if (Hit)
 				return false;
+			if(noteTime > T && !Settings.NotePushback) return false;
 			return CalculateTime(noteTime, approachTime) <= 1 && InHitWindow(noteTime, true);
 		}
 		public double CalculateTime(double noteTime, double approachTime)

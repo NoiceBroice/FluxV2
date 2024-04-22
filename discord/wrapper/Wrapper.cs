@@ -97,8 +97,8 @@ namespace Discord
 		{
 			var activity = new Activity();
 			activity.ApplicationId = DiscordW.ClientId;
-			activity.Assets.LargeImage = "vulnus";
-			activity.Assets.LargeText = "Vulnus";
+			activity.Assets.LargeImage = "flux";
+			activity.Assets.LargeText = "Flux";
 			activity.Assets.SmallImage = "beatgamedev";
 			if (startTimestamp != null) activity.Timestamps.Start = ((DateTimeOffset)startTimestamp).ToUnixTimeSeconds();
 			if (endTimestamp != null) activity.Timestamps.End = ((DateTimeOffset)endTimestamp).ToUnixTimeSeconds();
