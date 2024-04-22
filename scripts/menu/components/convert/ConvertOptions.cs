@@ -29,13 +29,15 @@ public class ConvertOptions : Panel
             if(!Compatibility.SSP.Map.Import(map))
             {
                 GD.Print("Failed to convert map " + map.Name);
-                continue;
+            } 
+            else
+            {
+                var dir = new Directory();
+                GD.Print("Removing " + map.Path);
+                dir.Remove(map.Path);
             }
             GetNode<ToConvertList>("../ToConvert/ScrollContainer/VBoxContainer").ToConvert.Remove(map);
             BeatmapLoader.MapsToConvert.Remove(map);
-            var dir = new Directory();
-            GD.Print("Removing " + map.Path);
-            dir.Remove(map.Path);
         }
 
         BeatmapLoader.LoadMapsFromDirectory(Global.MapPath, true);

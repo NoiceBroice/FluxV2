@@ -5,7 +5,7 @@ namespace Discord
 {
 	public class DiscordW
 	{
-		public static long ClientId { get; private set; } = 954573999088730154;
+		public static long ClientId { get; private set; } = 1231849122336604171;
 		public bool Disposed { get; private set; } = false;
 		private Discord Discord;
 		public DiscordW()
@@ -97,9 +97,9 @@ namespace Discord
 		{
 			var activity = new Activity();
 			activity.ApplicationId = DiscordW.ClientId;
-			activity.Assets.LargeImage = "flux";
+			activity.Assets.LargeImage = "fluxlogo";
 			activity.Assets.LargeText = "Flux";
-			activity.Assets.SmallImage = "beatgamedev";
+			activity.Assets.SmallImage = "fluxlogo";
 			if (startTimestamp != null) activity.Timestamps.Start = ((DateTimeOffset)startTimestamp).ToUnixTimeSeconds();
 			if (endTimestamp != null) activity.Timestamps.End = ((DateTimeOffset)endTimestamp).ToUnixTimeSeconds();
 			activity.State = state;

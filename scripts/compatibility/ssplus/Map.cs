@@ -55,6 +55,13 @@ namespace Compatibility.SSP
 			var md5 = file.GetMd5(path);
 			var importPath = Global.MapPath.PlusFile($"sspm_{md5}.flux");
 			GD.Print("Converting map => " + importPath);
+			
+			var dir = new Godot.Directory();
+			if(dir.FileExists(importPath)) {
+				GD.Print("Map already exists...");
+				return false;
+			}
+
 			using (var stream = new FileStream(importPath, FileMode.CreateNew))
 			{
 				using (var zip = new ZipArchive(stream, ZipArchiveMode.Create))

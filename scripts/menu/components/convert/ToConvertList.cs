@@ -7,16 +7,34 @@ using System.Collections.Generic;
 
 public class ToConvertList : VBoxContainer
 {
-    ToConvertEntry Entry;
+    PackedScene Entry;
     public List<BeatmapToConvert> ToConvert = new List<BeatmapToConvert>();
     public override void _Ready()
     {
-        Entry = GetNode<ToConvertEntry>("Entry");
+        Entry = GD.Load<PackedScene>("res://prefabs/convert/Entry.tscn");
+        // Entry.Visible = false;
+        PopulateList();
+    }
 
-        foreach(BeatmapToConvert map in BeatmapLoader.MapsToConvert) {
+    public override void _Input(InputEvent @event)
+    {
+        if(Input.IsActionJustPressed("reload_maps")) {
+            BeatmapLoader.LoadMapsFromDirectory(Global.MapPath, true);
+            PopulateList();
+        }
+    }
+
+    public void PopulateList()
+    {
+        foreach(ToConvertEntry child in GetChildren()) {
+            if(child.Visible) child.QueueFree();
+        }
+
+        foreach(var map in BeatmapLoader.MapsToConvert) {
             if(map.Version != 1) continue;
-            var new_entry = (ToConvertEntry)Entry.Duplicate();
+            var new_entry = (ToConvertEntry)Entry.Instance();
             new_entry.Visible = true;
+            new_entry.Name = "not_template_lol";
             new_entry.GetNode<Label>("Name").Text = map.Name;
             new_entry.Info = map;
             AddChild(new_entry);
