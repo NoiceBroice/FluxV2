@@ -11,11 +11,14 @@ public class ModSelect : View
     {
         this.ViewTween = GetNode<Tween>("Tween");
         selectedMods = GetNode<Label>("ModPanel/VBoxContainer/SelectedMods");
-        
+
         GetNode<Button>("ModPanel/Close").Connect("pressed", this, nameof(OnHide));
         
         GetNode<ModButtons>("ModPanel/VBoxContainer").Connect("UpdateSelectedModsLabel", this, nameof(UpdateSelectedModsLabel));
         GetNode<ConfigPanel>("ModPanel/ConfigPanel/VBoxContainer").Connect("UpdateSelectedModsLabel", this, nameof(UpdateSelectedModsLabel));
+
+        GetNode<ConfigPanel>("ModPanel/ConfigPanel/VBoxContainer").UpdateConfigElements();
+        GetNode<ConfigPanel>("ModPanel/ConfigPanel/VBoxContainer").ConnectConfigElements();
 
         GetNode<ModButtons>("ModPanel/VBoxContainer").UpdateButtons();
         GetNode<ModButtons>("ModPanel/VBoxContainer").ConnectButtons();
