@@ -114,14 +114,14 @@ namespace Content.Beatmaps
 			ImageTexture texture;
 			var cover = new Image();
 			var coverPath = "none";
-			// foreach (string path in System.IO.Directory.GetFiles(Path))
-			// {
-			// 	if (path.GetFile().BaseName().ToLower() == "cover")
-			// 	{
-			// 		coverPath = path;
-			// 		break;
-			// 	}
-			// }
+			foreach (string path in System.IO.Directory.GetFiles(Path))
+			{
+				if (path.GetFile().BaseName().ToLower() == "cover")
+				{
+					coverPath = path;
+					break;
+				}
+			}
 			if (coverPath == "none")
 			{
 				Cover = Global.Matt;
