@@ -92,7 +92,7 @@ namespace Gameplay
 			}
 
 			Global.Discord.SetActivity(new Discord.ActivityW(
-				state: "Playing a map",
+				state: "Playing a map at " + (Speed * 100).ToString() + "% speed",
 				details: $"{LoadedMapset.Name} - {LoadedMap.Name}",
 				startTimestamp: DateTime.Now,
 				endTimestamp: DateTime.Now.AddSeconds(SyncManager.AudioPlayer.Stream.GetLength() * SyncManager.Speed)

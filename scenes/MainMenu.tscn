@@ -563,7 +563,7 @@ margin_bottom = -4.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 3 )
-text = "GO BACK"
+text = "BACK"
 align = 1
 valign = 1
 __meta__ = {
@@ -740,6 +740,7 @@ expand = true
 stretch_mode = 6
 
 [node name="ModSelect" type="ColorRect" parent="ViewContainer/Singleplayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.784314 )
