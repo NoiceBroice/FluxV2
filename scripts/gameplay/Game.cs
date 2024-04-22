@@ -43,7 +43,7 @@ namespace Gameplay
 
 			Score = new Score();
 
-			CanFail = false;
+			CanFail = true;
 			Ended = false;
 
 			Camera.Cursor = Cursor;

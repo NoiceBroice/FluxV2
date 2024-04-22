@@ -23,7 +23,7 @@ namespace Gameplay
 			{90.0,"B"},
 			{85.0,"C"},
 			{75.0,"D"},
-			{0.0, "E"}
+			{0.0, "F"}
 		};
 		public static string GetRankForAccuracy(double accuracy)
 		{

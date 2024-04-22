@@ -11,7 +11,7 @@ namespace Gameplay.Mods
 		public override double ScoreMultiplier => 0.5;
 		public override double PerformanceMultiplier => 0;
 		public override Type[] IncompatibleMods => throw new NotImplementedException();
-		public override ModType Type => ModType.Misc;
+		public override ModType Type => ModType.Nerf;
 		public void ApplyToGame(Game game)
 		{
 			game.CanFail = false;

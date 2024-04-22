@@ -17,7 +17,12 @@ namespace Gameplay.Mods
 		}
 		public new string ToString()
 		{
-			return Count == 0 ? "None" : string.Join(", ", this);
+			return Count == 0 ? "None" : string.Join(", ", this.Select(x => x.Name));
+		}
+
+		public void ApplyAll(Game game)
+		{
+			foreach(IApplicableToGame m in this) m.ApplyToGame(game);
 		}
 	}
 }

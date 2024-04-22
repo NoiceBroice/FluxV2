@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://assets/fonts/SourceSansPro/SourceSansPro-Semibold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/images/play.png" type="Texture" id=2]
@@ -20,6 +20,9 @@
 [ext_resource path="res://assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://assets/images/placeholder.png" type="Texture" id=19]
 [ext_resource path="res://assets/images/exit.svg" type="Texture" id=20]
+[ext_resource path="res://assets/skin/nofail.png" type="Texture" id=21]
+[ext_resource path="res://scripts/menu/components/mods/ModSelect.cs" type="Script" id=22]
+[ext_resource path="res://scripts/menu/components/mods/ModButtons.cs" type="Script" id=23]
 
 [sub_resource type="StyleBoxFlat" id=25]
 bg_color = Color( 0.141176, 0.141176, 0.141176, 1 )
@@ -743,6 +746,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.784314 )
+script = ExtResource( 22 )
 
 [node name="ModPanel" type="Panel" parent="ViewContainer/Singleplayer/ModSelect"]
 anchor_left = 0.5
@@ -761,6 +765,7 @@ margin_left = 16.0
 margin_top = 8.0
 margin_right = -16.0
 margin_bottom = -8.0
+script = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="ViewContainer/Singleplayer/ModSelect/ModPanel/VBoxContainer"]
 margin_right = 608.0
@@ -806,6 +811,15 @@ anchor_right = 1.0
 margin_top = 32.0
 margin_bottom = 80.0
 
+[node name="Nofail" type="Button" parent="ViewContainer/Singleplayer/ModSelect/ModPanel/VBoxContainer/DiffDec/HBoxContainer"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+toggle_mode = true
+icon = ExtResource( 21 )
+icon_align = 1
+expand_icon = true
+
 [node name="Misc" type="Control" parent="ViewContainer/Singleplayer/ModSelect/ModPanel/VBoxContainer"]
 margin_top = 227.0
 margin_right = 608.0
@@ -830,10 +844,11 @@ margin_bottom = 352.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 custom_fonts/font = SubResource( 37 )
-text = "Selected: "
+text = "Selected: None"
 valign = 1
 
 [node name="ConfigPanel" type="Panel" parent="ViewContainer/Singleplayer/ModSelect/ModPanel"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -855,7 +870,7 @@ text = "Configuration"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="ViewContainer/Singleplayer/ModSelect/ModPanel"]
+[node name="Close" type="Button" parent="ViewContainer/Singleplayer/ModSelect/ModPanel"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -864,7 +879,7 @@ margin_left = -128.0
 margin_right = 128.0
 margin_bottom = 48.0
 custom_fonts/font = SubResource( 38 )
-text = "SAVE"
+text = "Close"
 
 [node name="Tween" type="Tween" parent="ViewContainer/Singleplayer/ModSelect"]
 

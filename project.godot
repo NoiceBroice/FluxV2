@@ -57,6 +57,7 @@ singletons_disabled=[ "res://addons/godot-openxr/config/godot_openxr.gdnlib" ]
 [global]
 
 accum=false
+vsync=false
 
 [gui]
 

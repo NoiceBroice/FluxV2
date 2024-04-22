@@ -1,3 +1,4 @@
+using Gameplay.Mods;
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ public class Global : Node
 
 	public static Global Instance;
 	public static Discord.DiscordW Discord;
+	// public static ModList Mods;
 	public static Texture PlaceholderTexture;
 	public static Texture Matt;
 	public Node CurrentScene { get; private set; }
