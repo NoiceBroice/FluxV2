@@ -66,7 +66,5 @@ public class ModButtons : Node
         
         configPanel.Visible = speedButton.Pressed;
         configPanel.GetNode<SpinBox>("VBoxContainer/Speed").Visible = toggled;
-
-
     }
 }
