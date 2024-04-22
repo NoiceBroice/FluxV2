@@ -67,6 +67,7 @@ render_priority = 2
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
+params_depth_draw_mode = 1
 
 [sub_resource type="MultiMesh" id=8]
 transform_format = 1
