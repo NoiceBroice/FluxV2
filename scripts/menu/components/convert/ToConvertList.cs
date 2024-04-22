@@ -31,7 +31,7 @@ public class ToConvertList : VBoxContainer
         }
 
         foreach(var map in BeatmapLoader.MapsToConvert) {
-            if(map.Version != 1) continue;
+            if(map.Version != 2) continue;
             var new_entry = (ToConvertEntry)Entry.Instance();
             new_entry.Visible = true;
             new_entry.Name = "not_template_lol";

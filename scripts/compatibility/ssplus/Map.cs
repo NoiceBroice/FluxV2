@@ -24,9 +24,7 @@ namespace Compatibility.SSP
 			var header = file.GetBuffer(4);
 			if (header.GetStringFromASCII() != "SS+m")
 				return -1;
-			if (file.Get16() > 1) return 1;
-			
-			return -1;
+			return file.Get16();
 		}
 
 		public static bool Import(BeatmapToConvert toConvert) 

@@ -38,7 +38,7 @@ public class ModButtons : Node
         {
             speedButton.Pressed = true;
             configPanel.Visible = true;
-            configPanel.GetNode<SpinBox>("VBoxContainer/Speed").Visible = true;
+            configPanel.GetNode<SpinBox>("VBoxContainer/SpeedConfig/VBoxContainer/Speed").Visible = true;
         }
         else speedButton.Pressed = false;
 
@@ -65,6 +65,6 @@ public class ModButtons : Node
         UpdateButtons();
         
         configPanel.Visible = speedButton.Pressed;
-        configPanel.GetNode<SpinBox>("VBoxContainer/Speed").Visible = toggled;
+        configPanel.GetNode<Panel>("VBoxContainer/SpeedConfig").Visible = toggled;
     }
 }
